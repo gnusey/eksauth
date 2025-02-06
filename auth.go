@@ -17,8 +17,10 @@ import (
 	"k8s.io/client-go/tools/clientcmd/api"
 )
 
-// Authenticate generates a REST configuration using STS and EKS which can used to create
-// clients to interact with Kubernetes.
+// Authenticate generates a REST configuration using STS and EKS which can be used to create
+// clients to interact with Kubernetes. The necessary IAM permissions are listed below:
+//
+//   - eks:DescribeCluster
 func Authenticate(ctx context.Context, eksc *eks.Client, stsc *sts.Client, cluster string) (*rest.Config, error) {
 	info, err := eksc.DescribeCluster(ctx, &eks.DescribeClusterInput{
 		Name: aws.String(cluster),
