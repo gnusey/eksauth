@@ -23,26 +23,6 @@ const (
 	EnvKeyRegion  = "EKS_AUTH_REGION"
 )
 
-// LambdaHandler returns a function that can be used as a Lambda handler. It authenticates
-// with EKS using default IAM credentials and then executes the wrapped function.
-func LambdaHandler2(cluster, region string, fn LambdaWrapFn) LambdaHandlerFn {
-	return func(ctx context.Context, req any) (any, error) {
-		cfg, err := config.LoadDefaultConfig(ctx,
-			config.WithRegion(region))
-		if err != nil {
-			return nil, err
-		}
-
-		auth, err := Authenticate(ctx,
-			eks.NewFromConfig(cfg), sts.NewFromConfig(cfg), cluster)
-		if err != nil {
-			return nil, err
-		}
-
-		return fn(ctx, req, cfg, auth)
-	}
-}
-
 // LambdaHandlerOptions are used to change the behaviour of LambdaHandler.
 type LambdaHandlerOptions struct {
 	UseEnv          bool
