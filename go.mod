@@ -1,6 +1,6 @@
 module github.com/gnusey/eksauth
 
-go 1.23.5
+go 1.24
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.36.1
@@ -8,7 +8,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/eks v1.58.0
 	github.com/aws/aws-sdk-go-v2/service/sts v1.33.14
 	github.com/aws/smithy-go v1.22.2
-	k8s.io/client-go v0.32.1
+	k8s.io/client-go v0.32.2
 )
 
 require (
@@ -40,7 +40,7 @@ require (
 	golang.org/x/time v0.10.0 // indirect
 	google.golang.org/protobuf v1.36.5 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
-	k8s.io/apimachinery v0.32.1 // indirect
+	k8s.io/apimachinery v0.32.2 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/utils v0.0.0-20241210054802-24370beab758 // indirect
 	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
